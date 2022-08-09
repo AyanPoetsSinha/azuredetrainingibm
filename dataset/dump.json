@@ -1,0 +1,26 @@
+{
+	"name": "dump",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureBlobStoragegetdump",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": {
+					"value": "@concat(pipeline().RunId,'.txt')",
+					"type": "Expression"
+				},
+				"container": "cotna"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"quoteChar": "\""
+		},
+		"schema": []
+	},
+	"type": "Microsoft.Synapse/workspaces/datasets"
+}
